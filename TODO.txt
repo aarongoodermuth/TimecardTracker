@@ -1,18 +1,3 @@
-determine offset from post
-print table 
-show table on main screen
-make method to get hours this week
-show only this weeks data
-	show hours worked
-	show hours to go
 show accumulation vs expectation
 	Table:	
 		extra accumulation
-		worked this week
-		to go this week
-		total need to work this week
-error handling
-	go directly to stop page
-	go directly to start page
-	start/stop too close
-	

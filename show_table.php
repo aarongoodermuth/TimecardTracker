@@ -1,23 +1,29 @@
 <?php
-header( 'Refresh: 60; url=http://www.personal.psu.edu/ajg5353/test/show_table.php' ) ;
+
+// this file feels a little hacky, but it still works, and I do not know what 
+//    I want it to look like, so refactoring will have to wait
+
+header( 'Refresh: 60; url=show_table.php' ) ;
 
 
 //Constants
-$HOURS_PER_WEEK = 19;
+$HOURS_PER_WEEK     =  19;
+$LOG_FILE           =  'log.txt';
+$MANUAL_ADD_FILE    =  'manual_add.txt';
+$STATE_FILE         =  'cur.txt';
+$NOT_RUNNING_STATE  =  'not running';
+
+//read LOG_FILE
+$file = file_get_contents($LOG_FILE);
+
+//read MANUAL_ADD_FILE
+$manual_add = file_get_contents($MANUAL_ADD_FILE);
+
+//read STATE_FILE
+$cur = file_get_contents($STATE_FILE);
 
 
-
-//read log.txt
-$file = file_get_contents("log.txt");
-
-//read manual_add.txt
-$manual_add = file_get_contents("manual_add.txt");
-
-//read cur.txt
-$cur = file_get_contents("cur.txt");
-
-
-//parse log.txt
+//parse LOG_FILE
 $line = explode("\n", $file);
 
 $total = $manual_add;
@@ -46,12 +52,7 @@ for($i=0; $i<count($line)-1; $i++)
 	//echo $i+1  . ":    Hours: " . $hours[$i] . " Minutes " . $minutes[$i] . " Seconds: " . $seconds[$i] . "<br>";
 }
 
-// for()
-// {
-
-// }
-
-if((strcmp($cur, "not running")))
+if((strcmp($cur, $NOT_RUNNING_STATE)))
 {
 	$total = $total + time() - (int)$cur;
 }
