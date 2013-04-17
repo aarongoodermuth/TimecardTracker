@@ -21,3 +21,15 @@ I also have several additional ideas for this that include:
   -- more than just a web interface (mobile)
 
 In the meantime, anyone is free to use this code and free to make their own modifications and improvements. 
+
+Installation
+=================
+
+Put all of these files into the same directory on a web server
+
+Navigate to timecard.php
+
+Known Issues
+===================
+
+  --  Time yet to work breaks on the new year rollover (solution: reset log.txt to blank, cur.txt to 'not running', manual_add.txt to 0)
