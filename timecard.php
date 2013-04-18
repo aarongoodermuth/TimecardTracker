@@ -129,8 +129,9 @@ function stop()
   
   // log the timer in LOG_FILE
   $file_contents = file_get_contents($LOG_FILE);
+  $size = filesize($LOG_FILE);
   $fp = fopen($LOG_FILE, 'w');
-  if(filesize($LOG_FILE) > 1)
+  if($size > 1)
   {
     fwrite($fp, $file_contents . 'start:' . $start_time . ' stop:' . $stop_time . ' duration:' . $duration . ' week:' . date('W') . '\n');
   }
